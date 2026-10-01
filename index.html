@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#091522" />
+    <meta name="description" content="循着张继的《枫桥夜泊》，游览一片由方块与像素构成的江南秋夜。四句诗，四处诗境，同一江山。" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>枫桥夜泊 · 一江秋夜，四处诗境</title>
+  </head>
+  <body>
+    <main id="app">
+      <div id="world" role="img" aria-label="枫桥夜泊三维景观：江流连接枫桥、枫林、渔舟、客船和城外寒山寺"></div>
+      <div class="vignette" aria-hidden="true"></div>
+      <header class="masthead interface">
+        <div class="identity">
+          <div class="seal" aria-hidden="true">诗<br />境</div>
+          <div><p class="eyebrow">A NIGHT MOORING AT MAPLE BRIDGE</p><h1>枫桥夜泊<span class="author">唐 · 张继</span></h1></div>
+        </div>
+        <div class="top-actions">
+          <button id="overview" class="quiet-button" aria-label="返回全景"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5" /></svg><span>全景</span></button>
+          <button id="immersive" class="quiet-button" aria-label="隐藏界面，进入沉浸模式"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" /></svg><span>沉浸</span></button>
+        </div>
+      </header>
+      <aside class="world-note interface" aria-label="作品介绍"><span class="note-line"></span><span>一江秋夜<br />四处诗境</span></aside>
+      <section class="scene-caption interface" aria-label="当前诗境">
+        <p id="chapter-kicker" class="eyebrow">THE POEM, IN ONE WORLD</p>
+        <h2 id="chapter-title">一江秋夜，四处诗境。</h2>
+        <p id="chapter-description">月落、枫红、古寺、孤舟。<br />循着诗句，走进张继的夜泊之境。</p>
+        <div class="caption-detail"><span class="tiny-square"></span><span id="chapter-detail">点击下方诗句，沿江寻境</span></div>
+      </section>
+      <div class="navigation-area interface">
+        <div class="navigation-meta">
+          <p class="interaction-hint"><svg viewBox="0 0 18 22" aria-hidden="true"><rect x="3" y="1" width="12" height="19" rx="6"/><path d="M9 1v7"/></svg><span class="desktop-hint">拖动环看<span class="hint-separator">·</span>滚轮远近</span><span class="touch-hint">单指环看<span class="hint-separator">·</span>双指远近</span></p>
+          <div class="step-controls"><button id="previous" aria-label="上一句诗"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button><span id="step-count">序 · 全景</span><button id="next" aria-label="下一句诗"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg></button></div>
+          <p class="night-mark"><span></span>姑苏 · 秋夜</p>
+        </div>
+        <nav id="poem-navigation" class="poem-navigation" aria-label="选择诗句，游览对应景观"></nav>
+        <footer><span>一片山河 · 四句唐诗</span><span>VOXEL POETRY <span class="footer-dot">/</span> 枫桥夜泊</span></footer>
+      </div>
+      <button id="restore-interface" aria-label="显示界面">显示界面 <span>ESC</span></button>
+      <div id="loading" role="status"><div class="loading-mark">枫</div><span>铺开一江秋夜…</span></div>
+      <div id="fallback" hidden><h2>暂时无法展开这片诗境</h2><p>请使用支持 WebGL 2 的现代浏览器，并开启硬件加速。</p><button id="retry">重新加载</button></div>
+      <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
