@@ -44,6 +44,7 @@ pnpm dev
 ```
 
 打开终端显示的本地地址，默认是 `http://localhost:5173`。
+项目使用 `/maple-bridge/` 子路径，访问 `http://localhost:5173/maple-bridge/`。
 
 ```sh
 pnpm check   # TypeScript 检查
@@ -52,6 +53,17 @@ pnpm preview # 预览生产构建，默认 localhost:4173
 ```
 
 `dist/` 可由静态服务器托管。生产运行资源全部随构建打包，场景不依赖外部模型、图片、字体服务或音频。
+
+## GitHub Pages 部署
+
+预期访问地址：<https://echo-dm.github.io/maple-bridge/>。
+
+在 GitHub 仓库的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。
+将配置推送到 `main` 后，`Deploy to GitHub Pages` 工作流会自动安装依赖、执行 TypeScript 检查和生产构建，并发布 `dist/`。也可以在 **Actions → Deploy to GitHub Pages → Run workflow** 手动触发。
+
+工作流使用 Node.js 24，并从 `package.json` 的 `packageManager` 读取 pnpm 版本，以 `pnpm install --frozen-lockfile` 安装依赖。Vite 的 `base` 为 `/maple-bridge/`，确保脚本、样式与 favicon 在项目子路径下正确加载。
+
+本地执行 `pnpm build` 和 `pnpm preview` 后，访问 `http://localhost:4173/maple-bridge/` 检查生产版本。实际上线以 Actions 部署成功及公网地址可访问为准。
 
 ## 实现
 
